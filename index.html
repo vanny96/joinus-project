@@ -199,12 +199,20 @@
       /*PREFERENCES STYLE*//*__INSPECT_SEPERATOR__*/
         /* Injected CSS Code */
     </style>
+    <link type="text/css" rel="stylesheet" href="./style/custom.css">
     </head>
     <body>
+
       <!-- https://submit.jotformeu.com/submit/92804309824359/ -->
-    <form class="jotform-form" action="" method="post" enctype="multipart/form-data" id="curriculum-form" accept-charset="utf-8" novalidate="true">
-      <input type="hidden" name="referer" value="" id="referer-parameter" />
+    <form class="jotform-form" action="" method="post" enctype="multipart/form-data" id="curriculum-form" accept-charset="utf-8">
       <div role="main" class="form-all">
+        <div class="loader-container">
+          <div class=loader></div>
+        </div>
+        <div class="successful-form">
+          <h2>La candidatura è avvenuta con successo!</h2>
+        </div>
+
         <ul class="form-section page-section">
           <li id="cid_293" class="form-input-wide" data-type="control_head">
             <div class="form-header-group ">
@@ -228,11 +236,11 @@
             <div id="cid_3" class="form-input jf-required">
               <div data-wrapper-react="true">
                 <span class="form-sub-label-container" style="vertical-align:top">
-                  <input type="text" id="first_3" name="nome" class="form-textbox validate[required]" size="10" value="" data-component="first" aria-labelledby="label_3 sublabel_3_first" required="">
+                  <input type="text" id="first_3" name="nome" class="form-textbox validate[required]" size="10" value="" data-component="first" aria-labelledby="label_3 sublabel_3_first" required>
                   <label class="form-sub-label" for="first_3" id="sublabel_3_first" style="min-height:13px"> Nome </label>
                 </span>
                 <span class="form-sub-label-container" style="vertical-align:top">
-                  <input type="text" id="last_3" name="cognome" class="form-textbox validate[required]" size="15" value="" data-component="last" aria-labelledby="label_3 sublabel_3_last" required="">
+                  <input type="text" id="last_3" name="cognome" class="form-textbox validate[required]" size="15" value="" data-component="last" aria-labelledby="label_3 sublabel_3_last" required>
                   <label class="form-sub-label" for="last_3" id="sublabel_3_last" style="min-height:13px"> Cognome </label>
                 </span>
               </div>
@@ -421,14 +429,14 @@
             <div id="cid_6" class="form-input jf-required">
               <div data-wrapper-react="true">
                 <span class="form-sub-label-container" style="vertical-align:top">
-                  <input type="tel" id="input_6_area" name="phone_area" class="form-textbox validate[required]" size="6" value="" placeholder="+39" data-component="areaCode" aria-labelledby="label_6" required="">
+                  <input type="tel" id="input_6_area" name="phone_area" class="form-textbox validate[required]" size="6" value="" placeholder="+39" data-component="areaCode" aria-labelledby="label_6" required>
                   <span class="phone-separate" aria-hidden="true">
                     &nbsp;-
                   </span>
                   <label class="form-sub-label" for="input_6_area" id="sublabel_6_area" style="min-height:13px">  </label>
                 </span>
                 <span class="form-sub-label-container" style="vertical-align:top">
-                  <input type="tel" id="input_6_phone" name="phone_number" class="form-textbox validate[required]" size="12" value="" data-component="phone" aria-labelledby="label_6 sublabel_6_phone" required="">
+                  <input type="tel" id="input_6_phone" name="phone_number" class="form-textbox validate[required]" size="12" value="" data-component="phone" aria-labelledby="label_6 sublabel_6_phone" required>
                   <label class="form-sub-label" for="input_6_phone" id="sublabel_6_phone" style="min-height:13px"> Numero </label>
                 </span>
               </div>
@@ -442,7 +450,7 @@
               </span>
             </label>
             <div id="cid_5" class="form-input jf-required">
-              <input type="email" id="input_5" name="email" class="form-textbox validate[required, Email]" size="30" value="" data-component="email" aria-labelledby="label_5" required="">
+              <input type="email" id="input_5" name="email" class="form-textbox validate[required, Email]" size="30" value="" data-component="email" aria-labelledby="label_5" required>
             </div>
           </li>
           <li class="form-line jf-required" data-type="control_fileupload" id="id_303">
@@ -453,7 +461,7 @@
               </span>
             </label>
             <div id="cid_303" class="form-input jf-required">
-              <input type="file" id="input_303" name="curriculum" class="form-upload validate[required]" data-imagevalidate="yes" data-file-accept="pdf, doc, docx" data-file-maxsize="10240" data-file-minsize="0" data-file-limit="0" data-component="fileupload" required="" accept="images/*">
+              <input type="file" id="input_303" name="curriculum" class="form-upload validate[required]" data-imagevalidate="yes" data-file-accept="pdf, doc, docx" data-file-maxsize="10240" data-file-minsize="0" data-file-limit="0" data-component="fileupload" required accept=".doc, .docx, .pdf">
             </div>
           </li>
           <li class="form-line" data-type="control_button" id="id_2">

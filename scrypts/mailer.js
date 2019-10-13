@@ -1,8 +1,42 @@
 var mailerUrl = "http://localhost:3000/mailer/canditatura"
 var form = document.querySelector("form#curriculum-form");
 
+var form_section = document.querySelector('ul.form-section');
+var loader_container = document.querySelector('div.loader-container');
+var successful_form = document.querySelector('div.successful-form');
+
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
+
+    loader_container.style.display="block";
+    form_section.style.display="none";
+
+    fetch(mailerUrl, {method: 'POST', body: getFormData()})
+    .then(response => {
+        return response.json();
+    }).then(json => {
+
+        if(json.status === 'success'){
+            successful_form.style.display="block";
+            loader_container.style.display="none";
+
+        } else {
+            console.log(json.error);
+
+            form_section.style.display="block";
+            loader_container.style.display="none";
+        }
+    }).catch(error => {
+        console.log(error);
+
+        form_section.style.display="block";
+        loader_container.style.display="none";
+
+    });
+
+})
+
+const getFormData = ()=>{
     let formData = new FormData();
 
     formData.set('nome', document.getElementById('first_3').value);
@@ -16,21 +50,5 @@ form.addEventListener("submit", (e)=>{
 
     formData.set('curriculum', document.getElementById('input_303').files[0]);
 
-    fetch(mailerUrl, {method: 'POST', body: formData})
-    .then(response => {
-        return response.json();
-    }).then(json => {
-
-        if(json.status === 'success'){
-            window.location.replace('congratulation.html');
-        } else {
-            window.location.reload();
-        }
-    }).catch(error => {
-        console.log(error);
-    });
-
-})
-
-var referer = document.getElementById("referer-parameter");
-referer.value = window.location.toString();
+    return formData;
+}
