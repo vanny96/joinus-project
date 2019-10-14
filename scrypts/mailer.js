@@ -4,6 +4,7 @@ var form = document.querySelector("form#curriculum-form");
 var form_section = document.querySelector('ul.form-section');
 var loader_container = document.querySelector('div.loader-container');
 var successful_form = document.querySelector('div.successful-form');
+var form_errors = document.querySelector('ul.form-errors-list');
 
 form.addEventListener("submit", (e)=>{
     e.preventDefault();
@@ -21,7 +22,8 @@ form.addEventListener("submit", (e)=>{
             loader_container.style.display="none";
 
         } else {
-            console.log(json.error);
+            console.log(json.errors);
+            populateErrors(json.errors);
 
             form_section.style.display="block";
             loader_container.style.display="none";
@@ -51,4 +53,15 @@ const getFormData = ()=>{
     formData.set('curriculum', document.getElementById('input_303').files[0]);
 
     return formData;
+}
+
+const populateErrors = (errors) => {
+    form_errors.textContent= "";
+
+    errors.forEach(error => {
+        let listElement = document.createElement('li');
+        listElement.textContent = error.msg;
+        
+        form_errors.appendChild(listElement);
+    })
 }
