@@ -1,4 +1,4 @@
-var mailerUrl = "http://localhost:3000/mailer/canditatura"
+var mailerUrl = "https://joinus.f-digital.online/mailer/canditatura"
 var form = document.querySelector("form#curriculum-form");
 
 var form_section = document.querySelector('ul.form-section');
